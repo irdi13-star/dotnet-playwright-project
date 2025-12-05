@@ -4,7 +4,7 @@ VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PlaywrightDotnetOwn", "PlaywrightDotnetOwn", "{242F5566-4C95-CBE4-6D31-ED3EC80FD8E3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightDotnetOwn", "PlaywrightDotnetOwn\PlaywrightDotnetOwn\PlaywrightDotnetOwn.csproj", "{F00D5703-AE7A-C986-5EE9-5D7CCE8FB42D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlaywrightDotnetOwn", "PlaywrightDotnetOwn\PlaywrightDotnetOwn.csproj", "{F00D5703-AE7A-C986-5EE9-5D7CCE8FB42D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
