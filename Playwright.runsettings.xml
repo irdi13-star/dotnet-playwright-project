@@ -1,0 +1,15 @@
+<RunSettings>
+  <Playwright>
+    <BrowserName>chromium</BrowserName>
+    <LaunchOptions>
+      <Headless>false</Headless>
+      <DevTools>true</DevTools>
+    </LaunchOptions>
+     <ContextOptions>
+      <Viewport>
+        <Width>1280</Width>
+        <Height>800</Height>
+      </Viewport>
+    </ContextOptions>
+  </Playwright>
+</RunSettings>

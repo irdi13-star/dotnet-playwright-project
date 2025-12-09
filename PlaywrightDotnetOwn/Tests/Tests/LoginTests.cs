@@ -6,35 +6,43 @@ using Tests.Utils;
 namespace Tests.Tests;
 
 [TestFixture]
+
 public class LoginTests : PageTest
 {
+    private LoginTestData _testData;
+
+    [OneTimeSetUp]
+    public void LoadTestData()
+    {
+        _testData = TestDataLoader.LoadJson<LoginTestData>("Tests/Resources/testData.json");
+    }
+
+    private static LabelsAndStrings _labels = LabelsLoader.Load("Tests/Resources/labels_and_strings.json");
+
+
     [Test]
     public async Task ValidLogin_ShouldRedirectToDashboard()
     {
-        var data = TestDataLoader.LoadJson<LoginTestData>("Tests/Resources/testData.json");
-        var user = data.validUser;
-
         var login = new LoginPage(Page);
         await login.GotoAsync(TestConfig.LoginPage);
-        await login.LoginAs(user.username, user.password);
+        await login.LoginAs(_testData.validUser.username, _testData.validUser.password);
+
+        var common = new CommonPage(Page);
+        await common.PageUrlAsExpected(TestConfig.LoggedInPage);
 
         var dashboard = new DashboardPage(Page);
-        Assert.That(await dashboard.IsLoaded(), Is.True);
-        Assert.That(Page.Url, Is.EqualTo(TestConfig.LoggedInPage));
         await dashboard.LogOutIsVisible();
     }
 
     [Test]
     public async Task InvalidLogin_ShouldShowError()
     {
-        var data = TestDataLoader.LoadJson<LoginTestData>("Tests/Resources/testData.json");
-        var user = data.invalidUser;
         var login = new LoginPage(Page);
-
         await login.GotoAsync(TestConfig.LoginPage);
-        await login.LoginAs(user.username, user.password);
+        await login.LoginAs(_testData.invalidUser.username, _testData.invalidUser.password);
+        await login.ErrorMessageAsExpected(_labels.loginPage.invalidUsernameError);
 
-        Assert.That(await login.GetErrorMessage(), Is.EqualTo("Your username is invalid!"));
-        Assert.That(Page.Url, Is.EqualTo(TestConfig.LoginPage));
+        var common = new CommonPage(Page);
+        await common.PageUrlAsExpected(TestConfig.LoginPage);
     }
 }
