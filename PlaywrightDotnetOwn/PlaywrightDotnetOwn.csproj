@@ -25,7 +25,7 @@
   <None Update="Tests\Resources\testData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\labels_and_strings.json">
+    <None Update="Tests\Resources\labels_and_strings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

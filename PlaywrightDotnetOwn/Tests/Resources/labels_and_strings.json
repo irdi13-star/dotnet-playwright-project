@@ -47,7 +47,8 @@
   "loginPage": {
     "headerTitle": "Test login",
     "invalidUsernameError": "Your username is invalid!",
-    "invalidPasswordError": "Your password is invalid!"
+    "invalidPasswordError": "Your password is invalid!",
+    "loginButton": "Submit"
   },
   "successfullyLoggedInPage": {
     "headerTitle": "Logged In Successfully",
